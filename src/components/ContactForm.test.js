@@ -9,39 +9,53 @@ test('renders without errors', ()=>{
 });
 
 test('renders the contact form header', ()=> {
+    // Arrange: Display ContactForm Component
     render( <ContactForm /> );
 
+    // Act: Find the element with Contact Form as text
     const header = screen.queryByText(/contact form/i);
+    
 
+    // Assert: Verify that element exists on the page
     expect( header ).toBeInTheDocument();
     expect( header ).toHaveTextContent(/contact form/i);
     expect( header ).toBeTruthy();
 });
 
 test('renders ONE error message if user enters less then 5 characters into firstname.', async () => {
+    render( <ContactForm /> );
+
     const firstNameInput = screen.getByLabelText(/first name*/i);
+
+    userEvent.type(firstNameInput, 'Dan');
 });
 
 test('renders THREE error messages if user enters no values into any fields.', async () => {
+    render( <ContactForm /> );
     
 });
 
 test('renders ONE error message if user enters a valid first name and last name but no email.', async () => {
+    render( <ContactForm /> );
     
 });
 
 test('renders "email must be a valid email address" if an invalid email is entered', async () => {
+    render( <ContactForm /> );
     
 });
 
 test('renders "lastName is a required field" if an last name is not entered and the submit button is clicked', async () => {
+    render( <ContactForm /> );
     
 });
 
 test('renders all firstName, lastName and email text when submitted. Does NOT render message if message is not submitted.', async () => {
+    render( <ContactForm /> );
     
 });
 
 test('renders all fields text when all fields are submitted.', async () => {
+    render( <ContactForm /> );
     
 });
